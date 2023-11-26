@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 # Domain of the URL.
 DOMAIN='https://www.bing.com'
 #Base of image from Bing.
@@ -30,7 +28,7 @@ crontab -u $USER $PWD/update_image_crontab
 }
 
 function update_image () {
-	wget "$PIC_URL" -O $IOTD/image_of_the_day.jpg
+	wget "$PIC_URL" -O ${IOTD:-~/image_of_the_day_bing}/image_of_the_day.jpg
 }
 
 function help_menu () {
