@@ -1,10 +1,14 @@
 #!/bin/bash
 
+set -x
+
 # Domain of the URL.
 DOMAIN='https://www.bing.com'
 #Base of image from Bing.
 PIC_BASE="$(curl 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US' | jq '.images|.[0]|.url')"
+PIC_BASE=${PIC_BASE//\"/} # Remove all '"' resulting from JSON.
 # Formulate image URL.
+
 PIC_URL=$(echo "$DOMAIN""$PIC_BASE")
 
 # TODO: Intallation sequence.
