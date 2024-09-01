@@ -1,3 +1,4 @@
 # Following will record current directory in environment variable.
-IOTD=/home/youhaj/image_of_the_day_bing
-@daily /home/youhaj/image_of_the_day_bing/get_image.sh -u
+IOTD=/home/k0/bing_iotd
+# Run script every first hour of everyday.
+0 7 * * *	/home/k0/bing_iotd/get_image.sh -u
